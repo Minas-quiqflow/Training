@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM List Exercise</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    ul { list-style-type: disc; }
+    li { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h2>My List</h2>
+  <input type="text" id="itemInput" placeholder="Enter item">
+  <button id="addBtn">Add Item</button>
+  <ul id="itemList"></ul>
+
+  <script>
+    const input = document.getElementById("itemInput");
+    const addBtn = document.getElementById("addBtn");
+    const list = document.getElementById("itemList");
+
+    addBtn.addEventListener("click", () => {
+      const value = input.value.trim();
+      if (value !== "") {
+        const li = document.createElement("li");
+        li.textContent = value;
+
+        // Add a remove button
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "❌";
+        removeBtn.style.marginLeft = "10px";
+
+        removeBtn.addEventListener("click", () => {
+          li.remove();
+        });
+
+        li.appendChild(removeBtn);
+        list.appendChild(li);
+        input.value = ""; // clear input
+      }
+    });
+  </script>
+</body>
+</html>
