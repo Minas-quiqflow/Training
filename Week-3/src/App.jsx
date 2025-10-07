@@ -2,12 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import AgGridTable from './components/AgGridTable'
+import BasicTable from './components/BasicTable'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+        <div style={{ padding: "2rem" }}>
+      <h1>React Data Tables</h1>
+
+      <h2>AG Grid Table</h2>
+      <AgGridTable />
+
+      <h2 style={{ marginTop: "2rem" }}>Basic HTML Table</h2>
+      <BasicTable />
+    </div>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
